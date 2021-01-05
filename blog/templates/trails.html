@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<h1>These are my favorite running trails</h1>
+<p> You would not believe it!</p>
+<!-- <iframe src="https://www.facebook.com/emil.kriz.79/posts/10219097211249765?comment_id=10219097673341317&notif_id=1609314909730936&notif_t=feedback_reaction_generic&ref=notif"> -->
+
+<div class="row">
+{% for trail in trails %}
+<div class="col-lg-4 col-md-6">
+  <div class="container-fluid">
+  <h4>{{ trail.title }}</h4>
+  <iframe style="border:none" src="{{ trail.urls }}" width="360" height="250" frameborder="0"></iframe>
+  </div>
+</div>
+
+
+{% endfor %}
+
+{% endblock %}

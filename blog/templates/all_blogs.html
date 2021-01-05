@@ -1,0 +1,39 @@
+{% extends 'portfolio/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body style="background-color:lightblue"><br>
+<h1 id="blogtitle" class="font-weight-bold text-center">Blogs</h1><br>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<img src="https://i.ytimg.com/vi/3ucrwgmeBtk/maxresdefault.jpg" width=200, height=165><br>
+<h3 class="text-center mb-5"> I have written so far {{ blogs.count }} blog{{ blogs|pluralize}}...</h3>
+
+{% for blog in blogs %}
+
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'blog:detail' blog.id %}">
+      <h2>{{ blog.title }} </h2>
+    </a>
+    <h5 class="muted">{{ blog.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ blog.body|safe|truncatechars:91 }}</h4>
+<!-- <p>{{ blog.body|striptags|truncatechars:250 }}</p> -->
+    </div>
+  </div>
+<br>
+<!-- <a href='{{ blog.urls}}'>Link</a> -->
+{% endfor %}
+<br>
+<br>
+<h3 class="text-center mb-5">...but the saga will continue...👍</h3>
+</body>
+
+{% endblock %}

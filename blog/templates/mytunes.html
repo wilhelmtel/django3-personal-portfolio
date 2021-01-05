@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<h4>On this spot I would like to present my songs and loops</h4>
+<p> I will try to update it as much as possible,</p>
+<p> but it has been quite a while since I made a recording...</p>
+
+<div class="row">
+{% for mytune in mytunes %}
+  <div class="col-lg-4 col-md-6">
+    <div class="container-fluid">
+      <h4>{{ mytune.title }}</h4>
+      <audio controls>
+        <source src="{{ mytune.sound_file.url }}" type="audio/mp3">Your browser doesnot support the audio element
+      </audio>
+    </div>
+  </div>
+
+
+
+{% endfor %}
+
+{% endblock %}

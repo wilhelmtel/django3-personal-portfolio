@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<h1>{{ blog.title }}</h1>
+<h4>---{{ blog.date|date:"F jS Y"}}---</h4>
+<br><br><br>
+<h5 class="col-6 text-left mx-5">{{ blog.body|safe}}</h5>
+{% if blog.urls %}
+<a class="mx-5">{{ blog.urls }}</a>
+<br>
+<img src="{{ blog.image.url }}" class="img-fluid mx-5", height=166, width=166>
+<br><br>
+{% else %}
+<br>
+{% endif %}
+<a href="{% url 'blog:all_blogs' %}" class="btn btn-primary mx-5">Back</a>
+
+{% endblock %}
